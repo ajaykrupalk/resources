@@ -18,7 +18,7 @@ const resourceSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        default: '../assets/default-image.avif',
+        default: '../../../assets/default-image.avif',
     },
     title: {
         type: String,
