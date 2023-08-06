@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const { storeResource } = require('../controllers/resource.controller')
+const { storeResource, getResources } = require('../controllers/resource.controller')
 
 router.post("/storeResource", storeResource)
 
-router.get("/getResources")
+router.get("/getResources", getResources)
 
 module.exports = router

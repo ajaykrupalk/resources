@@ -5,7 +5,6 @@ const Resource = require("../models/resource.model")
 
 const storeResource = async (req, res) => {
 
-
     try {
         const link = req.body.link
 
@@ -33,4 +32,13 @@ const storeResource = async (req, res) => {
 
 }
 
-module.exports = { storeResource }
+const getResources = async (req, res) => {
+    try {
+        const resources = await Resource.find({}).sort({createdAt: -1})
+        res.status(200).json(resources)
+    } catch(error) {
+        res.status(500).json({error: error})
+    }
+}
+
+module.exports = { storeResource, getResources }
