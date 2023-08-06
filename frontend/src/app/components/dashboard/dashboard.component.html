@@ -1,28 +1,7 @@
+<app-header></app-header>
 <div class="h-full bg-slate-950 p-6 flex justify-center">
     <div class="w-[75em] columns-1 space-y-3 md:columns-2 lg:columns-3 xl:columns-4 ">
-        <app-card URL="notion.so" title="Notion – One workspace. Every team."
-            description="We’re more than a doc. Or a table. Customize Notion to work the way you do."></app-card>
-        <app-card URL="filebin.com" title="Filebin"
-            description="Convenient file sharing. Think of it as Pastebin for files. Registration is not required. Large files are supported."></app-card>
-        <app-card URL="icons8.com" title="Free Icons, Clipart Illustrations, Photos, and Music"
-            description="Download design elements for free: icons, photos, vector illustrations, and music for your videos. All the assets made by designers → consistent quality ⚡️"></app-card>
-        <app-card URL="pastebin.com" title="Pastebin.com - #1 paste tool since 2002!"
-            description="Pastebin.com is the number one paste tool since 2002. Pastebin is a website where you can store text online for a set period of time."></app-card>
-        <app-card URL="freepik.com" title="Freepik: Download Free Videos, Vectors, Photos, and PSD"
-            description="Millions of Free Graphic Resources. ✓ Videos ✓Vectors ✓ Photos ✓ PSD ✓ Icons. All that you need for your Creative Projects. #freepik"></app-card>
-        <app-card URL="filebin.com" title="Filebin"
-            description="Convenient file sharing. Think of it as Pastebin for files. Registration is not required. Large files are supported."></app-card>
-        <app-card URL="notion.so" title="Notion – One workspace. Every team."
-            description="We’re more than a doc. Or a table. Customize Notion to work the way you do."></app-card>
-        <app-card URL="filebin.com" title="Filebin"
-            description="Convenient file sharing. Think of it as Pastebin for files. Registration is not required. Large files are supported."></app-card>
-            <app-card URL="notion.so" title="Notion – One workspace. Every team."
-            description="We’re more than a doc. Or a table. Customize Notion to work the way you do."></app-card>
-        <app-card URL="filebin.com" title="Filebin"
-            description="Convenient file sharing. Think of it as Pastebin for files. Registration is not required. Large files are supported."></app-card>
-            <app-card URL="filebin.com" title="Filebin"
-            description="Convenient file sharing. Think of it as Pastebin for files. Registration is not required. Large files are supported."></app-card>
-            <app-card URL="notion.so" title="Notion – One workspace. Every team."
-            description="We’re more than a doc. Or a table. Customize Notion to work the way you do."></app-card>
+        <app-card *ngFor="let resource of resources" [URL]="resource.URL" [domain]="resource.domain"
+            [title]="resource.title" [imgURL]="resource.imgURL" [description]="resource.description"></app-card>
     </div>
 </div>

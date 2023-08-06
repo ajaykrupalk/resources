@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
   @Input() URL!: string;
+  @Input() domain!: string;
   @Input() imgURL!: string;
   @Input() title!: string;
   @Input() description!: string;
