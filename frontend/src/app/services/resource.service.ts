@@ -11,7 +11,7 @@ export class ResourceService {
   constructor(private http: HttpClient) { }
 
   getResources(): Observable<Resource[]> {
-    const getResourcesURL = 'http://localhost:5000/getResources'
+    const getResourcesURL = 'https://resourc-es-backend.onrender.com/getResources'
 
     return this.http.get<Resource[]>(
       getResourcesURL
