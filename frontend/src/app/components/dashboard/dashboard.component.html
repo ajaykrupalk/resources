@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="h-full bg-slate-950 p-6 flex justify-center">
-    <div class="w-[75em] columns-1 space-y-3 md:columns-2 lg:columns-3 xl:columns-4 ">
+    <div class="w-[75em] space-y-3 columns-1 md:columns-2 lg:columns-3 xl:columns-4">
         <app-card *ngFor="let resource of resources" [URL]="resource.URL" [domain]="resource.domain"
             [title]="resource.title" [imgURL]="resource.imgURL" [description]="resource.description"></app-card>
     </div>
