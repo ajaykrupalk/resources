@@ -10,11 +10,13 @@ import { ResourceService } from 'src/app/services/resource.service';
 })
 export class DashboardComponent implements OnInit {
   resources: Resource[] = []
+  values: boolean = false;
 
   constructor(private resourceService: ResourceService) {}
 
   ngOnInit(): void {
     this.resourceService.getResources().subscribe(response =>{
+      this.values = true
       this.resources = response
     }, error => {
       console.log(error)
