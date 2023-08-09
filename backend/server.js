@@ -20,7 +20,7 @@ app.use("",resourceRoute)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
-        app.listen(5000, ()=>{
+        app.listen(process.env.PORT, ()=>{
             console.log("Connected to DB and Listening on port 5000")
         })
     })
