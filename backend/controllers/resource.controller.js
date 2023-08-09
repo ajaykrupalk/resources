@@ -20,6 +20,10 @@ let redisClient;
     await redisClient.connect()
 })();
 
+const welcome = (req,res) => {
+    res.send('Welcome to resourc-es')
+}
+
 const storeResource = async (req, res) => {
 
     try {
@@ -76,4 +80,4 @@ const getResources = async (req, res) => {
     }
 }
 
-module.exports = { storeResource, getResources }
+module.exports = { storeResource, getResources, welcome }

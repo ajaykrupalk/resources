@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const { storeResource, getResources } = require('../controllers/resource.controller')
+const { storeResource, getResources, welcome } = require('../controllers/resource.controller')
+
+routes.get("/", welcome)
 
 router.post("/storeResource", storeResource)
 
