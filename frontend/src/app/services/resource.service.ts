@@ -12,13 +12,9 @@ export class ResourceService {
 
   getResources(): Observable<Resource[]> {
     const getResourcesURL = 'https://resourc-es-backend.onrender.com/getResources'
-    const headers = new HttpHeaders()
-      .set('Accept-Encoding', 'gzip, compress, br')
-      .set('Cache-Control', 'max-age=31536000')
 
     return this.http.get<Resource[]>(
-      getResourcesURL,
-      { headers: headers}
+      getResourcesURL
     )
   }
 }
