@@ -14,7 +14,7 @@ const storeResource = async (req, res) => {
             headers: {
                 "X-API-Key": "c334f7b4-14e8-4621-8be2-f930add93282"
             }
-        }).catch(error => {res.status(500).json({error: error})});
+        }).catch(error => { res.status(500).json({ error: error }) });
 
         console.log(response.data)
 
@@ -34,10 +34,13 @@ const storeResource = async (req, res) => {
 
 const getResources = async (req, res) => {
     try {
-        const resources = await Resource.find({}).sort({createdAt: -1})
+        const resources = await Resource.find()
+        res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Accept-Encoding', 'gzip, compress, br')
+        res.setHeader('Cache-Control', 'max-age=31536000')
         res.status(200).json(resources)
-    } catch(error) {
-        res.status(500).json({error: error})
+    } catch (error) {
+        res.status(500).json({ error: error })
     }
 }
 
