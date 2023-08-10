@@ -53,7 +53,7 @@ const storeResource = async (req, res) => {
 
 }
 
-const DEFAULT_EXPIRATION = 3600
+const DEFAULT_EXPIRATION = 31536000
 
 const getResources = async (req, res) => {
 
