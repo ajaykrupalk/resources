@@ -11,7 +11,7 @@ export class ResourceService {
   constructor(private http: HttpClient) { }
 
   getResources(): Observable<Resource[]> {
-    const getResourcesURL = 'https://backend-resourc-es.onrender.com/getResources'
+    const getResourcesURL = 'https://resourc-es-backend.vercel.app/getResources'
 
     return this.http.get<Resource[]>(
       getResourcesURL
