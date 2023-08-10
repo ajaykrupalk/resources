@@ -57,7 +57,7 @@ const DEFAULT_EXPIRATION = 3600
 
 const getResources = async (req, res) => {
 
-    const value = await redisClient.get('droplet')
+    const value = await redisClient.get('resources')
     
     if(value !== null) {
         console.log('Cache Hit!')
@@ -69,7 +69,7 @@ const getResources = async (req, res) => {
         const resources = await Resource.find()
 
         // initially, we are adding data to redis cache
-        redisClient.setEx('droplet', DEFAULT_EXPIRATION, JSON.stringify(resources))
+        redisClient.setEx('resources', DEFAULT_EXPIRATION, JSON.stringify(resources))
 
         // adding headers for faster and compressed data
         res.setHeader('Content-Type', 'application/json');
