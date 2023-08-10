@@ -60,10 +60,12 @@ const getResources = async (req, res) => {
     const value = await redisClient.get('droplet')
     
     if(value !== null) {
+        console.log('Cache Hit!')
         return res.status(200).json(JSON.parse(value))
     }
 
     try {
+        console.log('Cache Miss!')
         const resources = await Resource.find()
 
         // initially, we are adding data to redis cache
