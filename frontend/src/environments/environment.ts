@@ -1,4 +1,3 @@
 export const environment = {
-    production: false,
-    backendURI: 'https://resourc-es-backend.vercel.app/getResources' 
-  };
+    backendURI: 'https://resourc-es-backend.vercel.app/getResources'
+};
