@@ -20,7 +20,7 @@ let redisClient;
     await redisClient.connect()
 })();
 
-const welcome = (req,res) => {
+const welcome = (req, res) => {
     res.send('Welcome to resourc-es')
 }
 
@@ -28,6 +28,20 @@ const storeResource = async (req, res) => {
 
     try {
         const link = req.body.link
+
+        const checkAvailable = await axios.post("https://api.peekalink.io/is-available/", {
+            "link": link
+        }, {
+            headers: {
+                "X-API-Key": "c334f7b4-14e8-4621-8be2-f930add93282"
+            }
+        })
+
+        try {
+            if (!checkAvailable.data.isAvailable) throw new Error('Website is not available')
+        } catch (error) {
+            return res.status(404).json({ error: error.message })
+        }
 
         const response = await axios.post("https://api.peekalink.io/", {
             "link": link
@@ -58,8 +72,8 @@ const DEFAULT_EXPIRATION = 86400
 const getResources = async (req, res) => {
 
     const value = await redisClient.get('resources')
-    
-    if(value !== null) {
+
+    if (value !== null) {
         console.log('Cache Hit!')
         return res.status(200).json(JSON.parse(value))
     }
@@ -74,10 +88,9 @@ const getResources = async (req, res) => {
         // adding headers for faster and compressed data
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('Accept-Encoding', 'gzip, compress, br')
-        res.setHeader('Cache-Control', 'max-age=31536000')
 
         return res.status(200).json(resources)
-    } catch(error) {
+    } catch (error) {
         return res.status(500).json(error)
     }
 }
