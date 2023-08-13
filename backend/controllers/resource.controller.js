@@ -80,7 +80,7 @@ const getResources = async (req, res) => {
 
     try {
         console.log('Cache Miss!')
-        const resources = await Resource.find()
+        const resources = await Resource.find().sort({createdAt: -1})
 
         // initially, we are adding data to redis cache
         redisClient.setEx('resources', DEFAULT_EXPIRATION, JSON.stringify(resources))
